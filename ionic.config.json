@@ -1,5 +1,7 @@
 {
   "name": "teamTwo",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
