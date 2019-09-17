@@ -1,14 +1,38 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Insertion App
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <div>
+          <p>Please enter a sequence of nine numbers to be sorted.</p>
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <div>
+          <ion-label>Enter ',' separated Sequence</ion-label>
+          <ion-input type="string" #ipSeq color="dark"></ion-input>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-button expand="block" color="dark" fill="solid" (click)="sortSeq(ipSeq.value)">Sort</ion-button>
+    </ion-row>
+    <ion-row>
+      <ion-list>
+        <div *ngFor="let seq of allSeq">
+            <ion-item>{{seq.data}}</ion-item>
+        </div>
+      </ion-list>
+    </ion-row>
+  </ion-grid>
 </ion-content>
