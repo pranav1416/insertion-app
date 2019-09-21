@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { StringifyOptions } from 'querystring';
-import { staticViewQueryIds } from '@angular/compiler';
-import { VirtualTimeScheduler } from 'rxjs';
+import { ToastController } from '@ionic/angular';
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -9,7 +8,7 @@ import { VirtualTimeScheduler } from 'rxjs';
 })
 export class HomePage {
 
-  constructor() {}
+  constructor(public toastController: ToastController) {}
   htmlString: string = "<p></p>"
   addText(textValue: string, iteration: number){
     if(iteration==1){
@@ -21,7 +20,7 @@ export class HomePage {
   sortSeq(inputValue: string){
     var unsortedSeq= inputValue.split(',').map(Number);
     if(unsortedSeq.length != 9){
-      window.alert("Please enter valid Input!")
+      this.validationToast(unsortedSeq)
     }
     else{
       var sortedSeq: number[];
@@ -47,5 +46,15 @@ export class HomePage {
       this.addText(seq.toString(),i+1)
      }
     return seq;
+    }
+
+    async validationToast(unsortedSeq) {
+      if (unsortedSeq.length != 9) {
+        const toast = await this.toastController.create({
+          message: 'Please enter valid Input!',
+          duration: 2000
+        });
+        toast.present();
+      }
     }
   }  

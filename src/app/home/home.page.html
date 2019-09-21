@@ -1,7 +1,7 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Insertion App
+  <ion-toolbar class="new-background-color">
+    <ion-title style="color: white">
+        INSERTION APP
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -18,17 +18,20 @@
 
     <ion-row>
       <ion-col>
-        <div>
-          <ion-label>Enter ',' separated Sequence</ion-label>
+        <ion-label>Enter ',' separated Sequence</ion-label>
+        <ion-item>
           <ion-input type="string" #ipSeq color="dark"></ion-input>
-        </div>
+        </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-button fill="solid" color="dark" expand="block" (click)="sortSeq(ipSeq.value)">Sort</ion-button>
+      <ion-col>
+        <ion-button style="text-align: center" fill="solid" color="dark" expand="block" (click)="sortSeq(ipSeq.value)">
+          Sort</ion-button>
+      </ion-col>
     </ion-row>
     <ion-row>
-      <div [innerHtml] = "htmlString"></div>
+      <div [innerHtml]="htmlString"></div>
     </ion-row>
   </ion-grid>
 </ion-content>
