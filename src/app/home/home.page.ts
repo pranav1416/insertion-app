@@ -10,53 +10,42 @@ import { VirtualTimeScheduler } from 'rxjs';
 export class HomePage {
 
   constructor() {}
+  htmlString: string = "<p></p>"
+  addText(textValue: string, iteration: number){
+    if(iteration==1){
+      this.htmlString = "<p>The intermediate Steps:</p>"  
+    }
+    this.htmlString += "<p>Iteration " + iteration + ": " + textValue + " </p>" 
+  }
+
   sortSeq(inputValue: string){
     var unsortedSeq= inputValue.split(',').map(Number);
-    let indexArray = new Map();
-    for(var i=0; i < unsortedSeq.length; i++){
-      indexArray.set(i+1,unsortedSeq[i]);
+    if(unsortedSeq.length != 9){
+      window.alert("Please enter valid Input!")
     }
-    var q = 1;
-    console.log(indexArray);
-    let ansObj = this.insertionSortFunc(indexArray);
-    console.log(ansObj);
-    /*
-    var seq: number[] =unsortedSeq;
-    console.log(seq);
-    var sortedSeq: number[] = this.insertionSort(seq);
-    console.log('Final Sorted Array: ');
-    console.log(sortedSeq);
-    console.log('iterations: ');
-    console.log(this.test); */
+    else{
+      var sortedSeq: number[];
+      var sortedSeq= this.insertionSort(unsortedSeq);
+      this.htmlString += "<p> The Sorted Sequence is : "+ sortedSeq + "</p>"
+    }
   }
+
   insertionSort(inputSeq: number[]) {
     var seq:number[] = inputSeq;
+    var indices: number[] = Array.from(Array(inputSeq.length).keys());
 
     for(var i = 0; i < seq.length; i++) {
       var temp = seq[i];
       var j = i - 1;
       while (j >= 0 && seq[j] > temp) {
         seq[j + 1] = seq[j];
+        indices[j+1] = indices[j]
         j--;
       }
       seq[j + 1] = temp;
-      console.log(seq);
+      indices[j+1]=i;
+      this.addText(seq.toString(),i+1)
      }
     return seq;
-  }
-  insertionSortFunc(indexedArray){
-    for(var i = 1; i <= indexedArray.length; i++){
-      var tempVal = indexedArray.i;
-      var j = i -1;
-      while(j >= 1 && indexedArray.j > tempVal){
-        var key=j+1;
-        indexedArray.key = indexedArray.j;
-        j--;
-      }
-      var newKey = j+1;
-      indexedArray.newKey = tempVal;
-      console.log(indexedArray);
     }
-    return indexedArray;
-  }
   }  

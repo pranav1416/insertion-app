@@ -25,14 +25,10 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-button expand="block" color="dark" fill="solid" (click)="sortSeq(ipSeq.value)">Sort</ion-button>
+      <ion-button fill="solid" color="dark" expand="block" (click)="sortSeq(ipSeq.value)">Sort</ion-button>
     </ion-row>
     <ion-row>
-      <ion-list>
-        <div *ngFor="let itr of sortSeq">
-            <ion-item>{{}}</ion-item>
-        </div>
-      </ion-list>
+      <div [innerHtml] = "htmlString"></div>
     </ion-row>
   </ion-grid>
 </ion-content>
