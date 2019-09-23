@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { HomePage } from './home.page';
+import { HomePage } from './home.pagit pge';
 
 describe('HomePage', () => {
   let component: HomePage;
