@@ -20,12 +20,12 @@
       <ion-col>
         <div>
           <ion-label>Enter ',' separated Sequence</ion-label>
-          <ion-input type="string" #ipSeq color="dark"></ion-input>
+          <ion-input type="string" #ipSeq color="dark" (ionChange) = "btnDisabled(ipSeq.value)"></ion-input>
         </div>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-button fill="solid" color="dark" expand="block" (click)="sortSeq(ipSeq.value)">Sort</ion-button>
+      <ion-button fill="solid" [disabled]="btnValue" color="dark" expand="block" (click)="sortSeq(ipSeq.value)">Sort</ion-button>
     </ion-row>
     <ion-row>
       <div [innerHtml] = "htmlString"></div>
