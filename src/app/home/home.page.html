@@ -20,13 +20,13 @@
       <ion-col>
         <ion-label>Enter ',' separated Sequence</ion-label>
         <ion-item>
-          <ion-input type="text" #ipSeq color="dark"></ion-input>
+          <ion-input type="text" #ipSeq color="dark" (ionChange) = "btnDisabled(ipSeq.value)"></ion-input>
         </ion-item>
       </ion-col>
     </ion-row>
     <ion-row>
       <ion-col>
-        <ion-button style="text-align: center" fill="solid" color="dark" expand="block" (click)="sortSeq(ipSeq.value)">
+        <ion-button style="text-align: center" [disabled]="btnValue" fill="solid" color="dark" expand="block" (click)="sortSeq(ipSeq.value)">
           Sort</ion-button>
       </ion-col>
     </ion-row>
